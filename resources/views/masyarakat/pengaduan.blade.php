@@ -42,7 +42,7 @@
                                                 <td>{{ $pengaduan->tanggal }}</td>
                                                 <td>{{ $pengaduan->nik }}</td>
                                                 <td>{{ $pengaduan->isi_laporan }}</td>
-                                                <td><img style="width:150px" src="{{ asset('images/pengaduan/' . $pengaduan->foto) }}" alt=""></td>
+                                                <td><img style="width:100px" src="{{ asset('images/pengaduan/' . $pengaduan->foto) }}" alt=""></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

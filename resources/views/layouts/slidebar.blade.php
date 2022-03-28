@@ -22,5 +22,11 @@
                 <li><a class="nav-link" href="{{ route('masyarakat.create') }}">Input Pengaduan</a></li>
             </ul>
         </li>
+
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
     </ul>
 </aside>

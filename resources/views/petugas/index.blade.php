@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class="card">
                             <div class="card-body">
-                                <table class="table">
+                                <table class="table" id="data">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -46,4 +46,11 @@
 
 @endsection
 @section('script')
+
+    <script>
+        $(document).ready(function() {
+            $('#data').DataTable();
+        });
+    </script>
+
 @endsection
