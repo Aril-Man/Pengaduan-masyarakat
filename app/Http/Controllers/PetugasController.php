@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PetugasController extends Controller
 {
     public function index(Masyarakat $masyarakat)
     {
-        $masyarakats = $masyarakat->all();
-        return view('petugas.index', compact('masyarakats'));
+        $user = User::where('role', 'petugas')->get();
+        return view('petugas.index', compact('user'));
     }
 
     public function pengaduan(Pengaduan $pengaduan)

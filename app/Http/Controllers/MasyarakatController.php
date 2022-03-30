@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +18,8 @@ class MasyarakatController extends Controller
      */
     public function index()
     {
-        $masyarakats = Masyarakat::all();
-        $user = Auth::user();
-        return view('masyarakat.index', compact('masyarakats', 'user'));
+        $user = User::where('role', 'petugas')->get();
+        return view('masyarakat.index', compact('user'));
     }
 
     /**
@@ -29,9 +29,7 @@ class MasyarakatController extends Controller
      */
     public function create()
     {
-        $masyarakats = Masyarakat::all();
-
-        return view('masyarakat.create', compact('masyarakats'));
+        return view('masyarakat.create');
     }
 
     /**
@@ -81,5 +79,4 @@ class MasyarakatController extends Controller
 
         return view('masyarakat.pengaduan', compact('pengaduans'));
     }
-
 }

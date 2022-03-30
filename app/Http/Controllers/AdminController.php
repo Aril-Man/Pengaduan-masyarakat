@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,35 +12,35 @@ class AdminController extends Controller
 {
     public function index(Masyarakat $masyarakat)
     {
-        $masyarakats = $masyarakat->all();
-        return view('admin.index', compact('masyarakats'));
+        $user = User::where('role', 'petugas')->get();
+        return view('admin.index', compact('user'));
     }
 
-    public function create_masyarakat()
+    public function create_petugas()
     {
-        return view('admin.create_masyarakat');
+        return view('admin.create_petugas');
     }
 
-    public function store_masyarakat(Request $request)
+    public function store_petugas(Request $request)
     {
-        $username = str_replace(' ', '', strtolower($request->nama));
+        $username = str_replace(' ', '', strtolower($request->nama) . rand(1, 100));
         $password = Hash::make($username);
 
-        $data = Masyarakat::create([
+        User::create([
             'nama' => $request->nama,
             'username' => $username,
             'password' => $password,
             'telp' => $request->telp,
-            'nik' => $request->nik,
+            'role' => 'petugas',
         ]);
 
         // dd($data);
         return redirect()->route('admin.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
-    public function destroy_masyarakat($id)
+    public function destroy_petugas($id)
     {
-        $data = Masyarakat::find($id);
+        $data = User::find($id);
         $data->delete();
 
         return redirect()->route('admin.index')->with('success', 'Data Berhasil Dihapus');

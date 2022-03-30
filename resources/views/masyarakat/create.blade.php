@@ -20,14 +20,11 @@
                         </div>
                         <div class="form-group">
                             <label>NIK</label>
-                            <select class="form-control" name="nik">
-                                <option selected disabled>Silahkan Cari NIK Anda!</option>
-                                @foreach ($masyarakats as $masyarakat)
-                                    <option value="{{ $masyarakat->nik }}">
-                                        {{ $masyarakat->nama . ' - ' . $masyarakat->nik }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <input type="number" name="nik" placeholder="Masukan NIK!" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" name="nama" placeholder="Masukan Nama!" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Isi Laporan</label>
@@ -35,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label>Upload Foto</label>
-                            <input type="file" name="foto" class="form-control" placeholder="Masukan NIK!">
+                            <input type="file" name="foto" class="form-control" placeholder="Masukan NIK!" required>
                         </div>
                         <div class="form-group">
                             <label>Status</label>

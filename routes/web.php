@@ -57,14 +57,12 @@ Route::group(['middleware' => ['auth', 'role:petugas']], function () {
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-        Route::get('/create_masyarakat', [AdminController::class, 'create_masyarakat'])->name('admin.create_masyarakat');
-        Route::post('/store', [AdminController::class, 'store_masyarakat'])->name('admin.store');
-        Route::delete('/destroy/{id}', [AdminController::class, 'destroy_masyarakat'])->name('admin.destroy');
+        Route::get('/create_petugas', [AdminController::class, 'create_petugas'])->name('admin.create_petugas');
+        Route::post('/store', [AdminController::class, 'store_petugas'])->name('admin.store');
+        Route::delete('/destroy/{id}', [AdminController::class, 'destroy_petugas'])->name('admin.destroy');
 
         Route::get('pengaduan', [AdminController::class, 'pengaduan'])->name('admin.pengaduan');
         Route::delete('/destroy_pengaduan/{id}', [AdminController::class, 'destroy_pengaduan'])->name('admin.destroy_pengaduan');
         Route::get('/cetak_pengaduan', [AdminController::class, 'cetak_pengaduan'])->name('admin.cetak_pengaduan');
     });
 });
-
-

@@ -8,7 +8,7 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data</span></a>
             <ul class="dropdown-menu">
                 <li class=""><a class="nav-link" href="{{ route('masyarakat.index') }}">Data
-                        Masyarakat</a></li>
+                        Petugas</a></li>
                 <li class=""><a class="nav-link" href="{{ route('masyarakat.pengaduan') }}">Data
                         Pengaduan</a></li>
             </ul>

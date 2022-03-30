@@ -1,16 +1,16 @@
 @extends('layouts.petugas.app')
 @section('head')
-@section('title', 'Data Masyarakat')
+@section('title', 'Data Petugas')
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Data Masyarakat</h1>
+            <h1>Data Petugas</h1>
         </div>
         <div class="row">
             <div class="col-lg-15 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Data Masyarakat</h4>
+                        <h4>Data Petugas</h4>
                     </div>
                     <div class="card-body">
                         <div class="card">
@@ -20,17 +20,17 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">Username</th>
                                             <th scope="col">No Telpon</th>
-                                            <th scope="col">NIK</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($masyarakats as $masyarakat)
+                                        @foreach ($user as $petugas)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $masyarakat->nama }}</td>
-                                                <td>{{ $masyarakat->telp }}</td>
-                                                <td>{{ $masyarakat->nik }}</td>
+                                                <td>{{ $petugas->nama }}</td>
+                                                <td>{{ $petugas->username }}</td>
+                                                <td>{{ $petugas->telp }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
