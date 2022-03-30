@@ -7,13 +7,14 @@
             <h1>Data Pengajuan</h1>
         </div>
         @if (Session::has('success'))
-        <div class="alert alert-success alert-has-icon">
-            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-            <div class="alert-body">
-                <div class="alert-title">Success</div>
-                {{ Session::get('success') }}
+            <div class="alert alert-success alert-has-icon">
+                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                <div class="alert-body alert-dismissible fade show" role="alert">
+                    <div class="alert-title">Success</div>
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
-        </div>
         @endif
         <div class="row">
             <div class="col-lg-15 col-md-12 col-12 col-sm-12">

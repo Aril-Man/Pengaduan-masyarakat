@@ -20,6 +20,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">Username</th>
                                             <th scope="col">No Telpon</th>
                                         </tr>
                                     </thead>
@@ -28,6 +29,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $petugas->nama }}</td>
+                                                <td>{{ $petugas->username }}</td>
                                                 <td>{{ $petugas->telp }}</td>
                                             </tr>
                                         @endforeach

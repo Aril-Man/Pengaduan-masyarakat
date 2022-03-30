@@ -42,7 +42,7 @@ class MasyarakatController extends Controller
     {
         $request->validate([
             'tanggal' => 'required',
-            'nik' => 'required',
+            'nik' => 'required|max:16',
             'isi_laporan' => 'required',
             'foto' => 'required',
             'status' => 'required',
