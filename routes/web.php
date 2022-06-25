@@ -21,27 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', [AuthController::class, 'check'])->middleware('guest');
-// Route::get('/login', [AuthController::class, 'check'])->name('login')->middleware('guest');
-// Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('auth');
-// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
 Auth::routes();
-
-Route::get('/', [LoginController::class, 'index'])->name('auth.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [RegisterController::class, 'create'])->name('register');
 
 // Masyarakat
-
-Route::prefix('masyarakat')->group(function () {
-    Route::get('/', [MasyarakatController::class, 'index'])->name('masyarakat.index');
-    Route::get('/create', [MasyarakatController::class, 'create'])->name('masyarakat.create');
-    Route::post('/store', [MasyarakatController::class, 'store'])->name('store');
-
-    Route::get('/pengaduan', [MasyarakatController::class, 'index_pengaduan'])->name('masyarakat.pengaduan');
-});
+Route::get('/', [MasyarakatController::class, 'index'])->name('masyarakat.index');
+Route::post('/', [MasyarakatController::class, 'store'])->name('masyarakat.store');
 
 // Petugas
 Route::group(['middleware' => ['auth', 'role:petugas']], function () {

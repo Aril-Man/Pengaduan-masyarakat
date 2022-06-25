@@ -33,6 +33,7 @@
                                 <label>NIK</label>
                                 <select class="form-control" name="status">
                                     <option selected disabled>{{ $pengaduan->status }}</option>
+                                    <option value="Prosess">Prosess</option>
                                     <option value="Selesai">Selesai</option>
                                 </select>
                             </div>

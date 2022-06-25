@@ -18,8 +18,8 @@ class MasyarakatController extends Controller
      */
     public function index()
     {
-        $user = User::where('role', 'petugas')->get();
-        return view('masyarakat.index', compact('user'));
+        $pengaduan = Pengaduan::all();
+        return view('masyarakat.index', compact('pengaduan'));
     }
 
     /**
@@ -27,10 +27,7 @@ class MasyarakatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('masyarakat.create');
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -41,11 +38,11 @@ class MasyarakatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tanggal' => 'required',
-            'nik' => 'required',
+            'tanggal' => 'required|date format:Y-m-d',
+            'nik' => 'required|integer',
             'isi_laporan' => 'required',
-            'foto' => 'required',
-            'status' => 'required',
+            'foto' => 'required|file |image|mimes:jpeg,png,jpg',
+            'status' => 'required|string',
         ]);
 
         $path = public_path('/images/pengaduan/');
@@ -70,13 +67,6 @@ class MasyarakatController extends Controller
 
         // dd($data);
 
-        return redirect('masyarakat/pengaduan')->with('success', 'Data berhasil ditambahkan');
-    }
-
-    public function index_pengaduan()
-    {
-        $pengaduans = Pengaduan::all();
-
-        return view('masyarakat.pengaduan', compact('pengaduans'));
+        return redirect()->back();
     }
 }

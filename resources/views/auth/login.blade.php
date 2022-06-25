@@ -71,12 +71,6 @@
                                             Login
                                         </button>
                                     </div>
-                                    <div class="form-group">
-                                        <a class="btn btn-success btn-lg btn-block"
-                                            href="{{ route('masyarakat.index') }}" tabindex="4">
-                                            Masuk Sebagai Masyarakat
-                                        </a>
-                                    </div>
                                 </form>
 
                             </div>

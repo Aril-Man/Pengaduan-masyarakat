@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->integer('nik');
+            $table->bigInteger('nik');
             $table->text('isi_laporan');
             $table->string('foto');
             $table->string('status');
