@@ -30,6 +30,7 @@
                     <label class="col-form-label">Tanggal</label>
                     <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ date('Y-m-d') }}" readonly>
                     </div>
+<<<<<<< HEAD
                     <div class="mb-3">
                     <label class="col-form-label">NIK</label>
                     <input type="number" class="form-control" id="nik" name="nik" placeholder="Masukan NIK Anda" required>
@@ -45,6 +46,32 @@
                     <div class="mb-3">
                         <label class="col-form-label">Status</label>
                         <input type="text" class="form-control" id="status" name="status" value="Pending" readonly>
+=======
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table" id="data">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">No Telpon</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($user as $petugas)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $petugas->nama }}</td>
+                                                <td>{{ $petugas->username }}</td>
+                                                <td>{{ $petugas->telp }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+>>>>>>> 036b98ff35a36ffd58b5de97d84534e2fd1b654e
                         </div>
 
                     <div class="modal-footer">

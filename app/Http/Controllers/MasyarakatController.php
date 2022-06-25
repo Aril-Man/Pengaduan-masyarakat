@@ -38,8 +38,13 @@ class MasyarakatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             'tanggal' => 'required|date format:Y-m-d',
             'nik' => 'required|integer',
+=======
+            'tanggal' => 'required',
+            'nik' => 'required|max:16',
+>>>>>>> 036b98ff35a36ffd58b5de97d84534e2fd1b654e
             'isi_laporan' => 'required',
             'foto' => 'required|file |image|mimes:jpeg,png,jpg',
             'status' => 'required|string',
@@ -69,4 +74,14 @@ class MasyarakatController extends Controller
 
         return redirect()->back();
     }
+<<<<<<< HEAD
+=======
+
+    public function index_pengaduan()
+    {
+        $pengaduans = Pengaduan::all();
+
+        return view('masyarakat.pengaduan', compact('pengaduans'));
+    }
+>>>>>>> 036b98ff35a36ffd58b5de97d84534e2fd1b654e
 }

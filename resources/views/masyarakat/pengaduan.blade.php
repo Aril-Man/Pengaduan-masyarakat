@@ -1,10 +1,10 @@
-@extends('layouts.admin.app')
+@extends('layouts.app')
 @section('head')
-@section('title', 'Data Petugas')
+@section('title', 'Data Pengajuan')
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Data Petugas</h1>
+            <h1>Data Pengajuan</h1>
         </div>
         @if (Session::has('success'))
             <div class="alert alert-success alert-has-icon">
@@ -20,9 +20,9 @@
             <div class="col-lg-15 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Data petugas</h4>
-                        <a href="{{ route('admin.create_petugas') }}" class="btn btn-primary">Tambah Petugas</a>
+                        <h4>Data Pengajuan</h4>
                     </div>
+
                     <div class="card-body">
                         <div class="card">
                             <div class="card-body">
@@ -30,28 +30,20 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">No Telpon</th>
-                                            <th scope="col">Aksi</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">NIK</th>
+                                            <th scope="col">Isi Laporan</th>
+                                            <th scope="col">Foto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $petugas)
+                                        @foreach ($pengaduans as $pengaduan)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $petugas->nama }}</td>
-                                                <td>{{ $petugas->username }}</td>
-                                                <td>{{ $petugas->telp }}</td>
-                                                <td>
-                                                    <form action="{{ route('admin.destroy', $petugas->id) }}"
-                                                        method="POST" class="d-inline">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="btn btn-danger"
-                                                            onclick="return confirm('Yakin Mau diHapus?')">Hapus</button>
-                                                    </form>
-                                                </td>
+                                                <td>{{ $pengaduan->tanggal }}</td>
+                                                <td>{{ $pengaduan->nik }}</td>
+                                                <td>{{ $pengaduan->isi_laporan }}</td>
+                                                <td><img style="width:100px" src="{{ asset('images/pengaduan/' . $pengaduan->foto) }}" alt=""></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -67,9 +59,9 @@
 
 @endsection
 @section('script')
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
             $('#data').DataTable();
-        });
+        } );
     </script>
 @endsection
